@@ -1,6 +1,10 @@
-package com.algaworks.financeiro.modelo;
+package com.algaworks.financeira.modelo;
 
 public class LojaVarejista extends Empresa {
+
+    public static final double PERCENTUAL_FATURAMENTO_LIMITE_CREDITO = 0.2;
+    public static final double PERCENTUAL_VALOR_ESTOQUE_LIMITE_CREDITO = 0.5;
+
     private double valorTotalEstoque;
 
     public LojaVarejista(String razaoSocial, double totalFaturamento, double valorTotalEstoque) {
@@ -18,11 +22,8 @@ public class LojaVarejista extends Empresa {
 
     @Override
     public double calcularLimiteAprovado() {
-        return 0;
+        return (getTotalFaturamento() * PERCENTUAL_FATURAMENTO_LIMITE_CREDITO)
+                + (getValorTotalEstoque() * PERCENTUAL_VALOR_ESTOQUE_LIMITE_CREDITO);
     }
 
-    @Override
-    public double calcularJuros(double valorSocilitado) {
-        return 0;
-    }
 }
