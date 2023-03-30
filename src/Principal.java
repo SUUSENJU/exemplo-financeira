@@ -1,5 +1,4 @@
-import com.algaworks.financeira.modelo.Fazenda;
-import com.algaworks.financeira.modelo.Industria;
+import com.algaworks.financeira.modelo.*;
 import com.algaworks.financeira.servico.ServicoFinanciamento;
 
 public class Principal {
@@ -8,9 +7,16 @@ public class Principal {
         var servicoFinanciamento = new ServicoFinanciamento();
         var fazenda = new Fazenda("Fazenda Dona Benedita", 5_000_000, 5);
         var industria = new Industria("Alimentos da Vovó", 900_000, true);
+        var parceiro = new ParceiroFinanceiro("Capital ABC", 2_000_000, 5000);
+        var funcionario = new Funcionario("João da Silva", 18_000);
 
+        servicoFinanciamento.solicitarFinanciamento(funcionario, 90_000);
         servicoFinanciamento.solicitarFinanciamento(fazenda, 600_000);
-//        servicoFinanciamento.solicitarFinanciamento(industria, 600_000);
+        servicoFinanciamento.solicitarFinanciamento(industria, 400_000);
+
+        System.out.println();
+
+        System.out.printf("Juros baixo risco: %.2f%% %n", EmpresaFinanciavel.JUROS_MEDIO_RISCO);
     }
 
 }

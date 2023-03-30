@@ -26,6 +26,4 @@ public abstract class Empresa {
         this.totalFaturamento = totalFaturamento;
     }
 
-    public abstract double calcularLimiteAprovado();
-
 }
